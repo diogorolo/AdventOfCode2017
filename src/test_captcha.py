@@ -25,3 +25,7 @@ class TestCaptcha(TestCase):
     def test_multiple_sums(self):
         result = self.c.solve('911229')
         self.assertEqual(12, result)
+
+    def test_empty_input(self):
+        result = self.c.solve('')
+        self.assertEqual(0, result)
