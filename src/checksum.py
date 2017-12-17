@@ -5,10 +5,10 @@ class Checksum:
         self.matrix = self.__parse(self.__sanitize(matrix_text))
 
     def __sanitize(self,matrix_text):
-        return matrix_text.replace('\t', ' ')
+        return matrix_text.replace('\t', ' ').replace('\r\n', '\n')
 
     def __parse(self, matrix_text):
-        return [list(map(int, x.split(' '))) for x in matrix_text.split('\r\n') if x != '']
+        return [list(map(int, x.split(' '))) for x in matrix_text.split('\n') if x != '']
 
     def solve(self):
         result = 0
