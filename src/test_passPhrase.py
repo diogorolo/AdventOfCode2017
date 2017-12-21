@@ -17,3 +17,8 @@ class TestPassPhrase(TestCase):
         p = PassPhrase('aa bb cc dd aaa')
         result = p.is_valid()
         self.assertTrue(result)
+
+    def test_is_valid_repeated_with_newline(self):
+        p = PassPhrase('aa aa\n')
+        result = p.is_valid()
+        self.assertFalse(result)
