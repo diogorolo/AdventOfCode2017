@@ -18,7 +18,7 @@ class TestCpuMaze(TestCase):
     def test_jump_increment(self):
         cur_value = self.c.instruction(0)
         self.c.jump()
-        self.assertEqual(cur_value + 1, self.c.instructions(0))
+        self.assertEqual(cur_value + 1, self.c.instruction(0))
 
     def test_jump_idx_change(self):
         self.c.jump()
@@ -28,4 +28,4 @@ class TestCpuMaze(TestCase):
 
     def test_solve(self):
         total_iterations = self.c.solve()
-        self.assertEqual(5,total_iterations)
+        self.assertEqual(5, total_iterations)

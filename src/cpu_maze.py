@@ -9,14 +9,19 @@ class CpuMaze:
         return self.instructions[idx]
 
     def jump(self):
-        pass
+        self.instructions[self.current_idx] += 1
+        self.current_idx += self.instructions[self.current_idx] - 1
 
     def solve(self):
-        pass
+        iterations = 0
+        while self.current_idx < len(self.instructions):
+            iterations += 1
+            self.jump()
+        return iterations
 
 
 if __name__ == '__main__':
-    with open('cpu_instructions_Data.txt', 'r') as f:
+    with open('cpu_instructions_data.txt', 'r') as f:
         instructions = f.readlines()
 
     c = CpuMaze(instructions)
